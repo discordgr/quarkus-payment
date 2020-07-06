@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello-quarkus - 1.0.0-SNAPSHOT</title>
+    <style>
+
+        body{
+            text-align: center;
+        }
+
+        header{
+            display: block;
+        }
+
+        #FirstPage{
+            display: none;
+        }
+
+        h2 {
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 2rem;
+            color: #1e5eac;
+        }
+
+        h3{
+            margin: 0 0 0.25em;
+        }
+
+        #form {
+            display: block;
+            text-align: center;
+        }
+
+        form{
+            display: inline-block;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+            outline: 0;
+            box-shadow: none;
+            border: 0 !important;
+            background: #2c3e50;
+            background-image: none;
+        }
+
+        select::-ms-expand {
+            display: none;
+        }
+
+        /* Custom Select */
+        .select {
+            position: relative;
+            display: flex;
+            width: 20em;
+            height: 3em;
+            line-height: 3;
+            background: #2c3e50;
+            overflow: hidden;
+            border-radius: .25em;
+            text-align: center;
+        }
+
+        select {
+            flex: 1;
+            padding: 0 .5em;
+            color: #fff;
+            cursor: pointer;
+            text-align:center;
+            text-align-last:center;
+        }
+
+        /* Arrow */
+        .select::after {
+            content: '\25BC';
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0 1em;
+            background: #34495e;
+            cursor: pointer;
+            pointer-events: none;
+            -webkit-transition: .25s all ease;
+            -o-transition: .25s all ease;
+            transition: .25s all ease;
+        }
+
+        /* Transition */
+        .select:hover::after {
+            color: #f39c12;
+        }
+
+        input[type="text"],input[type="number"]{
+            background-color: #2c3e50;
+            flex: 1;
+            padding: 0 .5em;
+            width: 20em;
+            height: 3em;
+            color: white;
+            text-align:center;
+            font-weight: bold;
+        }
+
+        button, input[type="checkbox"] {
+            background-color: #1e5eac;
+            padding: 0 .5em;
+            width: 20em;
+            height: 3em;
+            color: white;
+            text-align:center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .loader {
+            display: inline-block;
+            text-align: center;
+            border: 8px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid #3498db;
+            width: 30px;
+            height: 30px;
+            -webkit-animation: spin 2s linear infinite; /* Safari */
+            animation: spin 2s linear infinite;
+        }
+
+        /* Safari */
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+    </style>
+    <script src="index.js"></script>
+</head>
+<body>
+
+    <div id="FirstPage" style="display:block">
+        <h2>CardLink Payment Application</h2>
+        <br>
+            <div id="form">
+                <form>
+                    <h3>Currency</h3>
+                    <div class="select">
+                        <select class="w3-select" name="Currency">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">EUR</option>
+                            <option value="2">DOL</option>
+                            <option value="3">YEN</option>
+                        </select>
+                    </div>
+                    <br><br>
+                    <h3>Amount</h3><br>
+                    <input id="Amount" type = "text" name = "amount" />
+                    <br><br>
+                    <h3>Installments</h3><br>
+                    <input id="Installments" type = "text" name = "installments" value="0"/>
+                    <br><br>
+                    <h3>Tip</h3><br>
+                    <input id="Tip" type = "text" name = "Tip" value="0"/>
+                    <br><br>
+                    <h3>Mobile Phone</h3><br>
+                    <input id="Mobile" type = "text" name = "mobile" />
+                    <br><br>
+                    <h3>Email</h3><br>
+                    <input id="Email" type = "text" name = "email" />
+                    <br><br><br><br>
+                    <button id="Checkout" type= "button" onclick="goToMobileApp()">CheckOut</button>
+                    <div id="loader" class="loader" style="display:none"></div>
+                    <h4 id="loaderHeader" style="display:none;text-align: center;">Processing payment...</h4>
+                </form>
+
+            </div>
+    </div>
+
+</body>
+</html>
